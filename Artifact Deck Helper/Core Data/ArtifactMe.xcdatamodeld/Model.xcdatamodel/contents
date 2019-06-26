@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Card" representedClassName="Card" syncable="YES">
+        <attribute name="attack" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="baseCardId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="cardId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="cardName" optional="YES" attributeType="Transformable" customClassName="Dictionary&lt;String, String&gt;" syncable="YES"/>
+        <attribute name="cardText" optional="YES" attributeType="Transformable" customClassName="Dictionary&lt;String, String&gt;" syncable="YES"/>
+        <attribute name="cardType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hitPoints" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="ingameImage" optional="YES" attributeType="Transformable" customClassName="Dictionary&lt;String, String&gt;" syncable="YES"/>
+        <attribute name="isBlack" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isBlue" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isGreen" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isRed" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isSignature" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="largeImage" optional="YES" attributeType="Transformable" customClassName="Dictionary&lt;String, String&gt;" syncable="YES"/>
+        <attribute name="miniImage" optional="YES" attributeType="Transformable" customClassName="Dictionary&lt;String, String&gt;" syncable="YES"/>
+        <relationship name="cards" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CardSet" inverseName="cards" inverseEntity="CardSet" syncable="YES"/>
+        <relationship name="references" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reference" inverseName="references" inverseEntity="Reference" syncable="YES"/>
+    </entity>
+    <entity name="CardSet" representedClassName="CardSet" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="Transformable" customClassName="Dictionary&lt;String, String&gt;" syncable="YES"/>
+        <attribute name="packItemDef" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="setId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="version" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="cards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Card" inverseName="cards" inverseEntity="Card" syncable="YES"/>
+    </entity>
+    <entity name="CardSetURL" representedClassName="CardSetURL" syncable="YES">
+        <attribute name="cdnRoot" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="expireTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Reference" representedClassName="Reference" syncable="YES">
+        <attribute name="cardId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="count" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="refType" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="references" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Card" inverseName="references" inverseEntity="Card" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Card" positionX="-30.0546875" positionY="-250.99609375" width="128" height="300"/>
+        <element name="CardSet" positionX="-206.8125" positionY="-269.12890625" width="128" height="118"/>
+        <element name="CardSetURL" positionX="-250.953125" positionY="2.62890625" width="128" height="88"/>
+        <element name="Reference" positionX="-217.92578125" positionY="-123.359375" width="128" height="103"/>
+    </elements>
+</model>
